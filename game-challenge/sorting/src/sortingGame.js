@@ -29,14 +29,26 @@ const data = {
 }
 
 const theme = {
-  gapHeight: 5
+  gapHeight: 5,
+  borderRadius: 15
 }
 
 const Container = styled.div`
+  height: 100vh;
+`
+
+const Label = styled.div`
+  text-align: center;
+  padding: 5%;
+`
+
+const ItemContainer = styled.div`
+  height: 80%;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: ${props => Object.entries(props.items).map((item) => `${(100/Object.entries(props.items).length) - theme.gapHeight}vh `)};
-  grid-gap: ${theme.gapHeight}vh;
+  grid-template-rows: ${props => props.items.map((item) =>
+    `${(100/props.items.length) - theme.gapHeight * ((props.items.length - 1) / props.items.length)}% `)};
+  grid-gap: ${theme.gapHeight}%;
 `
 
 const Item = styled.div`
@@ -45,6 +57,7 @@ const Item = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: ${theme.borderRadius}px;
 `
 
 export default class SortingGame extends React.Component {
@@ -52,13 +65,19 @@ export default class SortingGame extends React.Component {
   }
 
   render() {
-    return <Container ref={this.dragulaDecorator} items={data.items}>
-      {
-        Object.entries(data.items).map((item) =>
-          <Item key={ item[0] } image={ item[1].image }>{ item[1].info }</Item>
-        )
-      }
-    </Container>
+    return (
+      <Container>
+        <Label>Reichtum</Label>
+        <ItemContainer ref={this.dragulaDecorator} items={Object.entries(data.items)}>
+          {
+            Object.entries(data.items).map((item) =>
+              <Item key={ item[0] } image={ item[1].image }>{ item[1].info }</Item>
+            )
+          }
+        </ItemContainer>
+        <Label>Armut</Label>
+      </Container>
+    )
   }
 
   dragulaDecorator = (componentBackingInstance) => {
