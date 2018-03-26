@@ -104,6 +104,12 @@ services:
     environment:
       PORT: 80
 
+  game-challenge-sorting:
+    build:
+      context: ./game-challenge/sorting
+    environment:
+      PORT: 80
+
   game-challenge-phaser-demo:
     build:
       context: ./game-challenge/phaser-demo

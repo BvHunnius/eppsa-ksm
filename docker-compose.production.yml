@@ -42,6 +42,11 @@ services:
     build:
       dockerfile: Dockerfile.production
 
+  game-challenge-sorting:
+    build:
+      dockerfile: Dockerfile.production
+
+
   game-challenge-phaser-demo:
     build:
       dockerfile: Dockerfile.production

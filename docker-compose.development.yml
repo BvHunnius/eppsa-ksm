@@ -63,6 +63,16 @@ services:
       - ./game-challenge/hunt/eppsa-mobile-game-server:/app
       - /app/node_modules
 
+  game-challenge-sorting:
+    build:
+      dockerfile: Dockerfile.development
+    volumes:
+      - ./game-challenge/sorting:/app
+      - /app/node_modules
+    ports:
+      - 8080:80
+
+
   game-challenge-phaser-demo:
     build:
       dockerfile: Dockerfile.development

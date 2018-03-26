@@ -5,6 +5,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const data = {
+  topLabel: "Reichtum",
+  bottomLabel: "Armut",
   order: ["item2", "item4", "item1", "item3"],
   items : {
     item1 : {
