@@ -72,7 +72,6 @@ services:
     ports:
       - 8080:80
 
-
   game-challenge-phaser-demo:
     build:
       dockerfile: Dockerfile.development
