@@ -5,8 +5,7 @@ import { ItemTypes } from "./constants"
 
 const ItemComponent = styled.div`
   height: 80px;
-  background: red;
-  background-image: url(${props => props.image});
+  background: ${props => props.isOver ? "green" : `url(${props.image})`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
