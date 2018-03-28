@@ -40,21 +40,6 @@ const dropTarget = {
   }
 };
 
-function collectDrag(connect, monitor) {
-  return {
-    connectDragSource: connect.dragSource(),
-    connectDragPreview: connect.dragPreview(),
-    isDragging: monitor.isDragging()
-  }
-}
-
-function collectDrop(connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
-  }
-}
-
 class Item extends React.Component {
   render() {
     let content = (
@@ -68,6 +53,21 @@ class Item extends React.Component {
     content = this.props.connectDragPreview(content)
 
     return content
+  }
+}
+
+function collectDrag(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+function collectDrop(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
   }
 }
 
