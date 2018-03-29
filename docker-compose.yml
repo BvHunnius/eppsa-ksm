@@ -15,7 +15,7 @@ services:
       - "443:443"
     volumes:
       - ${CERTIFICATE_PATH}:/certificate
-      - ./assets/fonts:/html/
+      - ./assets:/html
 
   asset-server:
     build: ./asset-server
@@ -56,6 +56,7 @@ services:
       CONTENT_SERVER_URI: https://content-server.${HOST}
       ASSET_SERVER_URI: https://asset-server.${HOST}
       GAME_SERVER_URI: https://game-server.${HOST}
+      FONT_URI: https://static.${HOST}/fonts
       PORT: 443
     depends_on:
       - content-server
@@ -116,6 +117,7 @@ services:
       context: ./game-challenge/quiz
     environment:
       PORT: 80
+      FONT_URI: https://static.${HOST}/fonts
 
   mongo:
     image: "mongo:3.6.3-jessie"

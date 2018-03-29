@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { injectGlobal } from "styled-components"
 import App from "./App"
 import "./index.css"
 import selectContent from "./selectContent"
@@ -17,3 +18,18 @@ function receiveMessage(event) {
     document.getElementById("root")
   )
 }
+const fontFamily = "Cabin"
+const FONT_URI = process.env.FONT_URI
+
+injectGlobal`
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  @font-face {
+    font-family: ${fontFamily};
+    font-weight: 100;
+    font-style: normal;
+    src: url("${FONT_URI}/Cabin/Cabin-Regular.ttf");
+  }
+`

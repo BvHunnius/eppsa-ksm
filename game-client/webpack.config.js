@@ -32,7 +32,8 @@ module.exports = {
     new webpack.EnvironmentPlugin([
       "CONTENT_SERVER_URI",
       "ASSET_SERVER_URI",
-      "GAME_SERVER_URI"
+      "GAME_SERVER_URI",
+      "FONT_URI"
     ])
   ],
   devServer: {
