@@ -15,6 +15,7 @@ services:
       - "443:443"
     volumes:
       - ${CERTIFICATE_PATH}:/certificate
+      - ./assets/fonts:/html/
 
   asset-server:
     build: ./asset-server

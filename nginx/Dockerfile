@@ -9,8 +9,8 @@ RUN rm /etc/nginx/nginx.conf
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY conf.d /etc/nginx/conf.d
-COPY sites-available/default.conf /etc/nginx/sites-available/default.conf
 COPY sites-available/${environment}/* /etc/nginx/sites-available/
+COPY sites-available/*.conf /etc/nginx/sites-available/
 COPY config /etc/nginx/config
 
 RUN mkdir /etc/nginx/sites-enabled
