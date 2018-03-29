@@ -1,28 +1,54 @@
 import React from "react"
 import autoBind from "react-autobind"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import "./App.css"
 import AnswerButton from "./components/answerButton"
 import Button from "./components/button"
-import Question from "./components/question"
 import ScoreCalculation from "./score"
 
+const theme = {
+  colors: {
+    primary: "#f5a159",
+    secondary: "#e5e5e5",
+    primaryFont: "#000000",
+    secondaryFont: "#7b7b7b",
+    areaColor: "#e05633",
+    rightAnswer: "#00d700",
+    wrongAnswer: "#f3352f"
+  },
+  layout: {
+    offsetX: "5vh",
+    borderRadius: "15px",
+    buttonBorder: "3px",
+  },
+  font: {
+    headline: { size: "4vh", weight: "bold", color: "#000000" },
+    button: { size: "3vh", weight: "normal", color: "#000000" },
+    text: { size: "2vh", weight: "normal", color: "#777777" }
+  }
+}
 
 const Container = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: Cabin;
+  padding-left: ${props => props.theme.layout.offsetX};
+  padding-right: ${props => props.theme.layout.offsetX};
   
-  width: 100%;
   height: 100%;
 `
 
-const Score = styled.div`
-  margin-top: 5px;
-  width: 200px;
-  height: 50px;
+const QuestionText = styled.div`
+  font-size: ${props => props.theme.font.headline.size};
+  color: ${props => props.theme.font.headline.color};
+  text-align: center;
+`
+
+const QuestionTitle = styled.div`
+  font-size: ${props => props.theme.font.text.size};
+  color: ${props => props.theme.font.text.color};
+  text-align: center;
 `
 
 export default class App extends React.Component {
@@ -40,12 +66,14 @@ export default class App extends React.Component {
   render() {
     const { question } = this.props.content
     return (
-      <Container>
-        { this.renderScore() }
-        <Question>{ question }</Question>
-        { this.renderAnswers() }
-        { this.renderNextButton() }
-      </Container>
+      <ThemeProvider theme={ theme }>
+        <Container>
+          <QuestionTitle>Frage:</QuestionTitle>
+          <QuestionText>{ question }</QuestionText>
+          { this.renderAnswers() }
+          { this.renderNextButton() }
+        </Container>
+      </ThemeProvider>
     )
   }
 
@@ -62,13 +90,6 @@ export default class App extends React.Component {
         }
       </AnswerButton>
     )
-  }
-
-  renderScore() {
-    return this.state.confirmed &&
-      <Score>
-        { this.points.score } +{ this.points.bonus }
-      </Score>
   }
 
   renderNextButton() {

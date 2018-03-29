@@ -3,10 +3,16 @@ import styled from "styled-components"
 
 export default styled.div `
   margin-top: 5px;
-  width: 200px;
-  height: 50px;
-  border-radius: 25px;
+  width: 100%;
+  height: 3em;
+  box-sizing: border-box;
+  border-radius: ${props => props.theme.layout.borderRadius};
   border-style: solid;
-  border-width: 3px;
+  border-width: ${props => props.theme.layout.buttonBorder};
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: ${props => props.theme.font.button.size};
+  color: ${props => props.theme.font.button.color};
 `
