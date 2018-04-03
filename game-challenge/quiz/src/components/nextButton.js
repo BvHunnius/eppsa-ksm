@@ -17,5 +17,5 @@ const NextIcon = styled(ButtonIcon)`
 `
 
 export default props => {
-  return <NextButton>{ props.text }<NextIcon/></NextButton>
+  return <NextButton { ...props }>{ props.text }<NextIcon/></NextButton>
 }
