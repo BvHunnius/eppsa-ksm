@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from "styled-components"
 import "./App.css"
 import AnswerButton from "./components/answerButton"
 import Button from "./components/button"
+import NextButton from "./components/nextButton"
 import ScoreCalculation from "./score"
 
 const theme = {
@@ -19,7 +20,7 @@ const theme = {
   layout: {
     offsetX: "5vh",
     borderRadius: "15px",
-    buttonBorder: "3px",
+    buttonBorder: "5px",
   },
   font: {
     headline: { size: "4vh", weight: "bold", color: "#000000" },
@@ -96,9 +97,9 @@ export default class App extends React.Component {
 
   renderNextButton() {
     return this.state.confirmed &&
-      <Button onClick={ this.nextChallenge }>
+      <NextButton onClick={ this.nextChallenge }>
         { this.props.content.shared.texts.next }
-      </Button>
+      </NextButton>
   }
 
   getSelection(i) {

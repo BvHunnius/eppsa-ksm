@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 
 export default styled.div `
-  margin-top: 5px;
+  margin-top: 1em;
   width: 100%;
   height: 3em;
   box-sizing: border-box;
