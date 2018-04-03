@@ -5,10 +5,6 @@ const fontFamily = "Cabin"
 
 export function injectGlobalStyle(fontServer) {
   injectGlobal`
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
   @font-face {
     font-family: ${fontFamily};
     font-weight: 400;

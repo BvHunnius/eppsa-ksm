@@ -10,10 +10,11 @@ export default {
   },
   layout: {
     offsetX: "5vh",
-    borderRadius: "15px",
+    borderRadius: "25px",
     buttonBorder: "5px",
   },
   font: {
+    fontFamily: "Cabin",
     headline: { size: "4vh", weight: "bold", color: "#000000" },
     button: { size: "3vh", weight: "normal", color: "#000000" },
     text: { size: "2vh", weight: "normal", color: "#777777" }

@@ -6,13 +6,13 @@ import ButtonIcon from "../assets/svg/EPPSA_Assets_Button_Icon.svg"
 
 const NextButton = styled(Button)`
   margin-top: 2em;
-  height: 2em;
   width: 67%;
-  fill: black;
 `
 
 const NextIcon = styled(ButtonIcon)`
-  height: 50%;
+  margin-left: 1em;
+  margin-top: 0.2em;
+  height: 0.9em;
   fill: black;
 `
 

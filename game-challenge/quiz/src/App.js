@@ -9,6 +9,7 @@ import theme from "./theme"
 
 
 const Container = styled.div `
+  font-family: ${props => props.theme.font.fontFamily};
   display: flex;
   flex-direction: column;
   align-items: center;
