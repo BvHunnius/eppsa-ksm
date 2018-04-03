@@ -14,5 +14,6 @@ export default styled.div `
   justify-content: center;
   align-items: center;
   font-size: ${props => props.theme.font.button.size};
+  font-weight: ${props => props.theme.font.button.weight};
   color: ${props => props.theme.font.button.color};
 `
