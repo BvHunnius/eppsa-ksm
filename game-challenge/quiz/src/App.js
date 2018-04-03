@@ -3,7 +3,6 @@ import autoBind from "react-autobind"
 import styled, { ThemeProvider } from "styled-components"
 import "./App.css"
 import AnswerButton from "./components/answerButton"
-import Button from "./components/button"
 import NextButton from "./components/nextButton"
 import ScoreCalculation from "./score"
 
