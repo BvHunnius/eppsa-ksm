@@ -41,12 +41,14 @@ const Container = styled.div `
 
 const QuestionText = styled.div`
   font-size: ${props => props.theme.font.headline.size};
+  font-weight: ${props => props.theme.font.headline.weight};
   color: ${props => props.theme.font.headline.color};
   text-align: center;
 `
 
 const QuestionTitle = styled.div`
   font-size: ${props => props.theme.font.text.size};
+  font-weight: ${props => props.theme.font.text.weight};
   color: ${props => props.theme.font.text.color};
   text-align: center;
 `
