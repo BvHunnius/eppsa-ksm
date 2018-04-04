@@ -63,12 +63,15 @@ export default class App extends React.Component {
 
   renderAnswers() {
     const answers = [1, 2, 3, 4].map(i => this.props.content[`answer${i}`])
+    const titles = ["A", "B", "C", "D"]
 
     return answers.map((answer, i) =>
       <AnswerButton
         key={ i + 1 }
         onClick={ !this.state.confirmed ? () => this.confirm(i + 1) : () => {} }
-        selection={ this.getSelection(i + 1) }>
+        selection={ this.getSelection(i + 1) }
+        answer={ answer }
+        title={ titles[i] }>
         {
           answer
         }
