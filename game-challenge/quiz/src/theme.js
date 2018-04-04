@@ -1,3 +1,5 @@
+const textSize = 2.5
+
 export default {
   colors: {
     primary: "#f5a159",
@@ -15,8 +17,8 @@ export default {
   },
   font: {
     fontFamily: "Cabin",
-    headline: { size: "4vh", weight: "bold", color: "#000000" },
-    button: { size: "3vh", weight: "normal", color: "#000000" },
-    text: { size: "2vh", weight: "normal", color: "#777777" }
+    headline: { size: `${textSize * 1.5}vh`, weight: "bold", color: "#000000" },
+    button: { size: `${textSize * 1.25}vh`, weight: "normal", color: "#000000" },
+    text: { size: `${textSize}vh`, weight: "normal", color: "#777777" }
   }
 }
