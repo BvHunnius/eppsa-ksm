@@ -12,6 +12,7 @@ export default styled.div `
   border-radius: ${props => props.theme.layout.borderRadius};
   border-style: solid;
   border-width: ${props => props.theme.layout.buttonBorder};
+  border-color: ${props => props.theme.colors.areaColor};
   text-align: center;
   display: flex;
   justify-content: center;

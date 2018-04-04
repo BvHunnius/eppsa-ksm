@@ -16,7 +16,7 @@ function receiveMessage(event) {
   console.log(event)
   const content = selectContent(event.data)
   ReactDOM.render(
-    <App content={ content } completeChallenge={ score =>
+    <App content={ content } areaColor="#e05633" completeChallenge={ score =>
       event.source.postMessage({ source: "challenge", score }, event.origin) } />,
     document.getElementById("root")
   )

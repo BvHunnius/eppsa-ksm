@@ -1,20 +1,21 @@
-import styled from "styled-components"
+import styled, { withTheme } from "styled-components"
 import Button from "./button"
 
 
 const AnswerButton = styled(Button)`
-  border-color: ${props => selectionColor(props.selection)};
+  border-color: ${props => selectionColor(props.selection, props.theme)};
 `
 
-function selectionColor(selection) {
+function selectionColor(selection, theme) {
   switch (selection) {
-    case "right": return "#00d700"
-    case "wrong": return "#f3352f"
-    default: return "#000000"
+    case "right": return theme.colors.rightAnswer
+    case "wrong": return theme.colors.wrongAnswer
+    case "greyed": return theme.colors.secondary
+    default: return theme.colors.areaColor
   }
 }
 
-export default AnswerButton
+export default withTheme(AnswerButton)
 
 AnswerButton.defaultProps = {
   selection: null

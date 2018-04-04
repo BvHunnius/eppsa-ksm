@@ -48,6 +48,7 @@ export default class App extends React.Component {
 
   render() {
     const { question } = this.props.content
+    theme.colors.areaColor = this.props.areaColor
     return (
       <ThemeProvider theme={ theme }>
         <Container>
@@ -89,6 +90,8 @@ export default class App extends React.Component {
         return "right"
       } else if (this.state.confirmed === i) {
         return "wrong"
+      } else {
+        return "greyed"
       }
     }
   }

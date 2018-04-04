@@ -4,7 +4,7 @@ export default {
     secondary: "#e5e5e5",
     primaryFont: "#000000",
     secondaryFont: "#7b7b7b",
-    areaColor: "#e05633",
+    areaColor: "#f5a159",
     rightAnswer: "#00d700",
     wrongAnswer: "#f3352f"
   },
