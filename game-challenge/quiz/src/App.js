@@ -25,6 +25,8 @@ const QuestionText = styled.div`
   font-weight: ${props => props.theme.font.headline.weight};
   color: ${props => props.theme.font.headline.color};
   text-align: center;
+  opacity: ${props => props.visible ? 1 : 0};
+  transition: opacity 250ms linear 250ms;
 `
 
 const QuestionTitle = styled.div`
@@ -32,6 +34,8 @@ const QuestionTitle = styled.div`
   font-weight: ${props => props.theme.font.text.weight};
   color: ${props => props.theme.font.text.color};
   text-align: center;
+  opacity: ${props => props.visible ? 1 : 0};
+  transition: opacity 250ms linear;
 `
 
 export default class App extends React.Component {
@@ -39,11 +43,12 @@ export default class App extends React.Component {
     super(props)
     autoBind(this)
     this.points = { bonus: 0, score: 0 }
-    this.state = { confirmed: false }
+    this.state = { confirmed: false, visible: false }
   }
 
   componentDidMount() {
     this.startTime = new Date()
+    setImmediate(() => this.setState({ visible: true}))
   }
 
   render() {
@@ -52,8 +57,8 @@ export default class App extends React.Component {
     return (
       <ThemeProvider theme={ theme }>
         <Container>
-          <QuestionTitle>Frage:</QuestionTitle>
-          <QuestionText>{ question }</QuestionText>
+          <QuestionTitle visible={ this.state.visible }>Frage:</QuestionTitle>
+          <QuestionText visible={ this.state.visible }>{ question }</QuestionText>
           { this.renderAnswers() }
           { this.renderNextButton() }
         </Container>
@@ -68,13 +73,12 @@ export default class App extends React.Component {
     return answers.map((answer, i) =>
       <AnswerButton
         key={ i + 1 }
+        visible={ this.state.visible }
         onClick={ !this.state.confirmed ? () => this.confirm(i + 1) : () => {} }
         selection={ this.getSelection(i + 1) }
         answer={ answer }
-        title={ titles[i] }>
-        {
-          answer
-        }
+        title={ titles[i] }
+        index={ i }>
       </AnswerButton>
     )
   }

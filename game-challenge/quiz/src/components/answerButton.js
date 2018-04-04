@@ -1,10 +1,19 @@
 import React from "react"
-import styled, { withTheme } from "styled-components"
+import styled, { css, withTheme } from "styled-components"
 import Button from "./button"
 
 
 const StyledButton = styled(Button)`
   border-color: ${props => selectionColor(props.selection, props.theme)};
+  ${props => props.visible ? css`
+      transform: scale(1, 1);
+      transition:
+        transform 250ms cubic-bezier(0.2, 0.7, 0.55, 1.6) ${props => 500 + props.index * 500}ms;
+    ` : css`
+      transform: scale(0, 0);
+      transition: transform 250ms ease;
+    `
+  }
 `
 
 const Title = styled.div`
